@@ -118,7 +118,7 @@ func testRedisConnection(redisAddress string) bool {
 		Password: "", // no password set
 		DB:       0,  // use default DB
 	})
-	pong, _ := client.Ping().Result()
+	pong, _ := client.Ping(context.Background()).Result()
 	if pong == "PONG" {
 		return true
 	}
